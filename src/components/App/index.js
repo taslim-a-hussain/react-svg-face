@@ -1,9 +1,13 @@
 import React from 'react';
+import Canvas from '../Canvas';
+import Footer from '../Footer';
+import './index.scss';
 
 const App = () => (
-    <div>
-        <h1>React</h1>
-    </div>
+    <React.Fragment>
+        <Canvas />
+        <Footer />
+    </React.Fragment>
 );
 
 export default App;

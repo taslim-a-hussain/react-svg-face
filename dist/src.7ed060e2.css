@@ -1,0 +1,22 @@
+#canvas {
+  height: 88vh;
+  background-color: skyblue;
+}
+.footer {
+  height: 150px;
+}
+
+.img {
+  width: 100%;
+  height: 150px;
+}
+html, body, * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=/src.7ed060e2.css.map */
