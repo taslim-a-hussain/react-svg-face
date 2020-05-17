@@ -1,4 +1,9 @@
-#canvas {
+.face {
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+}
+.canvas {
   height: 88vh;
   background-color: skyblue;
 }
