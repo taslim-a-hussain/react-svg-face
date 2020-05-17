@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import {select} from 'd3';
 import './index.scss';
 
