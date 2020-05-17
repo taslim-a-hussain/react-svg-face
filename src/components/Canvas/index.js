@@ -9,8 +9,8 @@ const Canvas = () => {
 
     // Canvas Element
     const canvasEl = useRef();
-
-    const [canvasSize, setCanvasSize] = useState({});
+    // state: canvasSize
+    const [canvasSize, setCanvasSize] = useState({width:-500, height:-500});
 
     // component did mount
    useEffect(() => {
@@ -19,15 +19,13 @@ const Canvas = () => {
         const canvasWidth = Math.floor(canvas.node().getBoundingClientRect().width);
         const canvasHeight = Math.floor(canvas.node().getBoundingClientRect().height);
         setCanvasSize({width: canvasWidth, height: canvasHeight});
-
     }, []);
-
+    
 
     return (
-
-        <div className="canvas" ref={canvasEl}>
-            <Face canvasSize={canvasSize} />
-        </div>
+            <div className="canvas" ref={canvasEl}>
+                <Face canvasWidth={canvasSize.width} canvasHeight={canvasSize.height}/>
+            </div>
     );
 };
 
