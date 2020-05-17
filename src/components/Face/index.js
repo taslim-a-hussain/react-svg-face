@@ -19,6 +19,8 @@ const Face = ({canvasWidth, canvasHeight}) => {
                 svg.attr('transform', `translate(${canvasWidth/2 - svgLength/2}, ${canvasHeight/2 - svgLength/2})`);
     }, [canvasWidth, canvasHeight]);
 
+
+
     return (
         <React.Fragment>
             <svg id="svg" ref={rootNode} className="face"></svg>
