@@ -94,7 +94,6 @@ const Face = React.forwardRef((props,canvasRef) => {
     return (
         <React.Fragment>
             <svg ref={faceNode} className="face"></svg>
-            {console.log('Face component rendered...')}
         </React.Fragment>
     );
 });

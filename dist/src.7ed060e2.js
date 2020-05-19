@@ -57290,7 +57290,7 @@ var Face = _react.default.forwardRef(function (props, canvasRef) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("svg", {
     ref: faceNode,
     className: "face"
-  }), console.log('Face component rendered...'));
+  }));
 });
 
 var _default = Face;
