@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "homepage": ".",
+  "homepage": "https://taslim-a-hussain.github.io/react-svg-face/",
   "scripts": {
     "start": "parcel public/index.html",
     "build": "parcel build public/index.html --out-dir build",
