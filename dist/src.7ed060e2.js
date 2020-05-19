@@ -57221,29 +57221,70 @@ var Face = _react.default.forwardRef(function (props, canvasRef) {
     var canvasHeight = Math.floor(canvas.node().getBoundingClientRect().height); // Get the face size (square)
 
     var face = (0, _d.select)(faceNode.current);
-    var faceSize = face.node().getBoundingClientRect().width / 2; // Position face in the center of the canvas
+    var faceSize = face.node().getBoundingClientRect().width / 2;
+    var eyes = {
+      size: 30,
+      left: 150,
+      right: 350,
+      position: 180
+    };
+    var eyebrow = {
+      width: 80,
+      height: 10,
+      left: 100,
+      right: 310,
+      position: -50,
+      animate: 50
+    };
+    var mouth = {
+      startAngle: Math.PI / 2,
+      endAngle: Math.PI * 3 / 2,
+      innerRadius: 150,
+      outerRadius: 170
+    };
+
+    if (face.node().getBoundingClientRect().width === 300) {
+      eyes = {
+        size: 15,
+        left: 80,
+        right: 210,
+        position: 120
+      };
+      eyebrow = {
+        width: 50,
+        height: 6,
+        left: 60,
+        right: 180,
+        position: -30,
+        animate: 25
+      };
+      mouth = {
+        startAngle: Math.PI / 2,
+        endAngle: Math.PI * 3 / 2,
+        innerRadius: 100,
+        outerRadius: 110
+      };
+    } // Position face in the center of the canvas
+
 
     face.attr('transform', "translate(".concat(canvasWidth / 2 - faceSize, ", ").concat(canvasHeight / 2 - faceSize, ")")); // Create face circle
 
     var faceCircleG = face.append('g').attr('transform', "translate(".concat(faceSize, ", ").concat(faceSize, ")"));
     faceCircleG.append('circle').attr('r', faceSize).attr('class', 'face-circle');
-    var eyesG = face.append('g').attr('transform', "translate(0, 180)");
+    var eyesG = face.append('g').attr('transform', "translate(0, ".concat(eyes.position, ")"));
     var leftEye = eyesG.append('circle');
-    leftEye.attr('r', 30).attr('cx', 150);
+    leftEye.attr('r', eyes.size).attr('cx', eyes.left);
     var rightEye = eyesG.append('circle');
-    rightEye.attr('r', 30).attr('cx', 350);
-    var eyebrowG = eyesG.append('g').attr('transform', "translate(0, -50)");
+    rightEye.attr('r', eyes.size).attr('cx', eyes.right);
+    var eyebrowG = eyesG.append('g').attr('transform', "translate(0, ".concat(eyebrow.position, ")")); // Animate eyebrow
+
+    eyebrowG.transition().duration(1500).attr('transform', "translate(0, ".concat(eyebrow.position - eyebrow.animate, ")")).transition().duration(1500).attr('transform', "translate(0, ".concat(eyebrow.position, ")"));
     var leftEyebrow = eyebrowG.append('rect');
-    leftEyebrow.attr('width', 80).attr('height', 10).attr('x', 100);
+    leftEyebrow.attr('width', eyebrow.width).attr('height', eyebrow.height).attr('x', eyebrow.left);
     var rightEyebrow = eyebrowG.append('rect');
-    rightEyebrow.attr('width', 80).attr('height', 10).attr('x', 310);
+    rightEyebrow.attr('width', eyebrow.width).attr('height', eyebrow.height).attr('x', eyebrow.right);
     var arcGenerator = (0, _d.arc)();
-    var pathData = arcGenerator({
-      startAngle: Math.PI / 2,
-      endAngle: Math.PI * 3 / 2,
-      innerRadius: 150,
-      outerRadius: 170
-    });
+    var pathData = arcGenerator(mouth);
     faceCircleG.append('path').attr('d', pathData);
   }, []);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("svg", {
@@ -57396,7 +57437,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44783" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40027" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
