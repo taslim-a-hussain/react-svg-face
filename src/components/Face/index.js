@@ -1,5 +1,5 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {select} from 'd3';
+import React, {useRef, useEffect} from 'react';
+import {select, arc} from 'd3';
 import './index.scss';
 
 
@@ -28,6 +28,44 @@ const Face = React.forwardRef((props,canvasRef) => {
                 faceCircleG.append('circle')
                     .attr('r', faceSize)
                     .attr('class', 'face-circle');
+
+        const eyesG = face.append('g')
+                .attr('transform', `translate(0, 180)`);
+
+        const leftEye = eyesG.append('circle');
+                    leftEye.attr('r', 30)
+                            .attr('cx', 150);
+        
+        const rightEye = eyesG.append('circle');
+                    rightEye.attr('r', 30)
+                            .attr('cx', 350);
+
+        const eyebrowG = eyesG.append('g')
+                    .attr('transform',`translate(0, -50)`);
+
+        const leftEyebrow = eyebrowG.append('rect');
+                leftEyebrow.attr('width', 80)
+                           .attr('height', 10)
+                           .attr('x', 100);
+        
+        const rightEyebrow = eyebrowG.append('rect');
+                rightEyebrow.attr('width', 80)
+                        .attr('height', 10)
+                        .attr('x', 310);
+
+          
+        const arcGenerator = arc();
+
+        const pathData = arcGenerator({
+            startAngle: Math.PI / 2,
+            endAngle: Math.PI * 3 / 2,
+            innerRadius: 150,
+            outerRadius: 170
+          });
+
+
+          faceCircleG.append('path')
+            .attr('d', pathData);
 
     }, []); 
     

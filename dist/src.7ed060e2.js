@@ -57227,6 +57227,24 @@ var Face = _react.default.forwardRef(function (props, canvasRef) {
 
     var faceCircleG = face.append('g').attr('transform', "translate(".concat(faceSize, ", ").concat(faceSize, ")"));
     faceCircleG.append('circle').attr('r', faceSize).attr('class', 'face-circle');
+    var eyesG = face.append('g').attr('transform', "translate(0, 180)");
+    var leftEye = eyesG.append('circle');
+    leftEye.attr('r', 30).attr('cx', 150);
+    var rightEye = eyesG.append('circle');
+    rightEye.attr('r', 30).attr('cx', 350);
+    var eyebrowG = eyesG.append('g').attr('transform', "translate(0, -50)");
+    var leftEyebrow = eyebrowG.append('rect');
+    leftEyebrow.attr('width', 80).attr('height', 10).attr('x', 100);
+    var rightEyebrow = eyebrowG.append('rect');
+    rightEyebrow.attr('width', 80).attr('height', 10).attr('x', 310);
+    var arcGenerator = (0, _d.arc)();
+    var pathData = arcGenerator({
+      startAngle: Math.PI / 2,
+      endAngle: Math.PI * 3 / 2,
+      innerRadius: 150,
+      outerRadius: 170
+    });
+    faceCircleG.append('path').attr('d', pathData);
   }, []);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("svg", {
     ref: faceNode,
@@ -57378,7 +57396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45235" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44783" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
