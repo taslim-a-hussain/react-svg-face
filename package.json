@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "homepage": "https://taslim-a-hussain.github.io/react-svg-face/",
   "scripts": {
     "start": "parcel public/index.html",
-    "build": "parcel build public/index.html --out-dir build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "rm -rf dist && parcel build public/index.html",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
