@@ -2,30 +2,41 @@ import React, {useRef, useEffect, useState} from 'react';
 import {select} from 'd3';
 import './index.scss';
 
-const Face = ({canvasWidth, canvasHeight}) => {
-    const rootNode = useRef();
 
-    const [svgLength, setSvgLength] = useState(500);
+const Face = React.forwardRef((props,canvasRef) => {
+    const faceNode = useRef();
 
-    useEffect(() => {
-        const svg = select(rootNode.current);
-        const svgX = svg.node().getBoundingClientRect().width;
-        setSvgLength(svgX);
-    }, []);
     
-    // Component did update
+    // Component did mount
     useEffect(() => {
-        const svg = select(rootNode.current);
-                svg.attr('transform', `translate(${canvasWidth/2 - svgLength/2}, ${canvasHeight/2 - svgLength/2})`);
-    }, [canvasWidth, canvasHeight]);
 
+        // Get the canvas width and height
+        const canvas = select(canvasRef.current);
+        const canvasWidth = Math.floor(canvas.node().getBoundingClientRect().width);
+        const canvasHeight = Math.floor(canvas.node().getBoundingClientRect().height);
 
+        // Get the face size (square)
+        const face = select(faceNode.current);
+        const faceSize = face.node().getBoundingClientRect().width / 2;
 
+        // Position face in the center of the canvas
+        face.attr('transform', `translate(${canvasWidth/2 - faceSize}, ${canvasHeight/2 - faceSize})`);
+
+        // Create face circle
+        const faceCircleG = face.append('g')
+                .attr('transform', `translate(${faceSize}, ${faceSize})`);
+                faceCircleG.append('circle')
+                    .attr('r', faceSize)
+                    .attr('class', 'face-circle');
+
+    }, []); 
+    
     return (
         <React.Fragment>
-            <svg id="svg" ref={rootNode} className="face"></svg>
+            <svg ref={faceNode} className="face"></svg>
+            {console.log('Face component rendered...')}
         </React.Fragment>
     );
-};
+});
 
 export default Face;

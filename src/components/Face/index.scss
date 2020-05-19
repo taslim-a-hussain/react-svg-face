@@ -5,6 +5,13 @@
 }
 
 
+.face-circle {
+    fill: rgb(230, 230, 8);
+    stroke: rgb(255, 255, 0);
+    stroke-width: 2px;
+}
+
+
 @media (max-width: 600px) {
     .face {
         width: 300px;

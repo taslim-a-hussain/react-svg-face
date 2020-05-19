@@ -4,6 +4,12 @@
   border: 1px solid red;
 }
 
+.face-circle {
+  fill: #e6e608;
+  stroke: yellow;
+  stroke-width: 2px;
+}
+
 @media (max-width: 600px) {
   .face {
     width: 300px;
