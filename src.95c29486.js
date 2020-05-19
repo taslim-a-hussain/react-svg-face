@@ -1016,7 +1016,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"react":"n8MK","d3":"UzF0","./index.scss":"fVwQ"}],"bkCb":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=u(require("react")),t=r(require("../Face"));function r(e){return e&&e.__esModule?e:{default:e}}function n(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return n=function(){return e},e}function u(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var t=n();if(t&&t.has(e))return t.get(e);var r={},u=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var a in e)if(Object.prototype.hasOwnProperty.call(e,a)){var f=u?Object.getOwnPropertyDescriptor(e,a):null;f&&(f.get||f.set)?Object.defineProperty(r,a,f):r[a]=e[a]}return r.default=e,t&&t.set(e,r),r}require("./index.scss");var a=function(){var r=(0,e.useRef)();return e.default.createElement("div",{className:"canvas",ref:r},e.default.createElement(t.default,{ref:r}))},f=a;exports.default=f;
 },{"react":"n8MK","../Face":"U1dF","./index.scss":"fVwQ"}],"WAQK":[function(require,module,exports) {
-module.exports="/sea.59709441.png";
+module.exports="react-svg-face/sea.59709441.png";
 },{}],"xbOT":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=r(require("react")),t=r(require("../../media/image/sea.png"));function r(e){return e&&e.__esModule?e:{default:e}}require("./index.scss");var a=function(){return e.default.createElement("div",{className:"footer"},e.default.createElement("img",{className:"img",src:t.default,alt:"Sea"}))},u=a;exports.default=u;
 },{"react":"n8MK","../../media/image/sea.png":"WAQK","./index.scss":"fVwQ"}],"ToZP":[function(require,module,exports) {
@@ -1024,4 +1024,4 @@ module.exports="/sea.59709441.png";
 },{"react":"n8MK","../Canvas":"bkCb","../Footer":"xbOT","./index.scss":"fVwQ"}],"uBxZ":[function(require,module,exports) {
 "use strict";var e=u(require("react")),t=u(require("react-dom")),r=u(require("./components/App"));function u(e){return e&&e.__esModule?e:{default:e}}t.default.render(e.default.createElement(r.default,null),document.getElementById("root"));
 },{"react":"n8MK","react-dom":"NKHc","./components/App":"ToZP"}]},{},["uBxZ"], null)
-//# sourceMappingURL=/src.95c29486.js.map
+//# sourceMappingURL=react-svg-face/src.95c29486.js.map
