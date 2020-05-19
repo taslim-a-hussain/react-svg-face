@@ -5,9 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "start": "parcel public/index.html",
-    "predeploy": "rm -rf dist && parcel build public/index.html",
+    "predeploy": "rm -rf dist && parcel build public/index.html --public-url /react-svg-face",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://taslim-a-hussain.github.io/react-svg-face/",
   "keywords": [],
   "author": "",
   "license": "ISC",
